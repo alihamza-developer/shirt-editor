@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/editor.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    <title>Shirt Editor - Demo</title>
+</head>
+
+<body>
+
+    <!-- Obj Props -->
+    <div class="cn-obj-props-nav">
+
+        <!-- Remove Obj -->
+        <span class="remove-obj">
+            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#5f6368">
+                <path
+                    d="M312-144q-29.7 0-50.85-21.15Q240-186.3 240-216v-480h-48v-72h192v-48h192v48h192v72h-48v479.57Q720-186 698.85-165T648-144H312Zm336-552H312v480h336v-480ZM384-288h72v-336h-72v336Zm120 0h72v-336h-72v336ZM312-696v480-480Z" />
+            </svg>
+        </span>
+        <!-- Move Up -->
+        <span class="move-obj" data-type="up" style="border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;">
+            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#5f6368">
+                <path d="M444-192v-438L243-429l-51-51 288-288 288 288-51 51-201-201v438h-72Z" />
+            </svg>
+        </span>
+
+        <!-- Remove Down -->
+        <span class="move-obj" data-type="down">
+            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#5f6368">
+                <path d="M444-768v438L243-531l-51 51 288 288 288-288-51-51-201 201v-438h-72Z" />
+            </svg>
+        </span>
+
+        <!-- Reset Object -->
+        <span class="reset-obj" style="border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;">
+            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#5f6368">
+                <path
+                    d="M480-120q-138 0-240.5-91.5T122-440h82q14 104 92.5 172T480-200q117 0 198.5-81.5T760-480q0-117-81.5-198.5T480-760q-69 0-129 32t-101 88h110v80H120v-240h80v94q51-64 124.5-99T480-840q75 0 140.5 28.5t114 77q48.5 48.5 77 114T840-480q0 75-28.5 140.5t-77 114q-48.5 48.5-114 77T480-120Zm112-192L440-464v-216h80v184l128 128-56 56Z" />
+            </svg>
+        </span>
+    </div>
+
+
+    <!-- Editor -->
+    <div class="editor-wraper active">
+        <div class="editor-popup">
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Text Tools for mobile editing -->
+                <div class="items" data-type="text">
+
+                    <!-- Color Toggle -->
+                    <div class="item" data-type="color">
+                        <div class="image">
+                            <img src="./images/icons/color.svg" alt="">
+                        </div>
+
+                        <span class="title">Color</span>
+                    </div>
+
+                    <!-- Font Toggle -->
+                    <div class="item" data-type="fontFamily">
+                        <div class="image">
+                            <img src="./images/icons/font.svg" alt="">
+                        </div>
+                        <span class="title">Font</span>
+                    </div>
+
+                    <!-- Alignment & Curve Text Toggle -->
+                    <label class="item" data-type="alignment">
+                        <div class="image">
+                            <img src="./images/icons/align-center.svg" alt="">
+                        </div>
+                        <span class="title">Alignment</span>
+                    </label>
+
+                    <!-- Edit Toggle -->
+                    <label class="item" data-type="editText">
+                        <div class="image">
+                            <img src="./images/icons/edit.svg" alt="">
+                        </div>
+                        <span class="title">Edit</span>
+                    </label>
+                </div>
+                <!-- Sidebar options -->
+                <div class="items" data-type="sidebar">
+
+                    <!-- Designs Tool -->
+                    <div class="item" onclick="toggleDesignPopup(true);$('.template-popup').removeClass('active')">
+                        <div class="image">
+                            <img src="./images/icons/designs.svg" alt="">
+                        </div>
+
+                        <span class="title">Designs</span>
+                    </div>
+
+                    <!-- Text Tool -->
+                    <div class="item add-text-btn">
+                        <div class="image">
+                            <img src="./images/icons/text.svg" alt="">
+                        </div>
+                        <span class="title">Text</span>
+                    </div>
+
+                    <!-- Image Tool -->
+                    <label class="item">
+                        <input type="file" class="upload-image" style="display: none;" accept=".png, .jpeg, .jpg">
+
+                        <div class="image">
+                            <img src="./images/icons/image.svg" alt="">
+                        </div>
+                        <span class="title">Image</span>
+                    </label>
+
+                    <!-- Export Tool -->
+                    <label class="item export-for-responsive export-design-btn">
+                        <div class="image">
+                            <img src="./images/icons/export.svg" alt="">
+                        </div>
+                        <span class="title">Export</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Editing Tools -->
+            <div class="top-area">
+                <div class="zoom-btn">
+                    <img src="./images/icons/zoom-in.svg" alt="Zoom In" class="zoom-in">
+                    <span class="title zoom-in">Zoom in</span>
+
+                    <img src="./images/icons/zoom-out.svg" alt="Zoom Out" class="zoom-out">
+                    <span class="title zoom-out">Zoom out</span>
+                </div>
+            </div>
+
+            <!-- Shirt Editor -->
+            <div class="shirt-editor-con">
+                <!-- Editor Preview Area -->
+                <div class="preview-area">
+
+                    <div class="image">
+                        <!-- Shirt Image -->
+                        <img src="" alt="Shirt Preview" class="shirt-image">
+                        <!-- Canvas Area -->
+                        <canvas id="printArea"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="editing-tools">
+                <!-- Shirt Editing Area -->
+                <div class="editing-mode active" data-type="shirt">
+                    <div class="heading">
+                        Men's T-Shirt Custom print
+                    </div>
+
+                    <div class="colors-con">
+                        <div class="title">Color: <span class="selected-color">Pine green</span></div>
+
+                        <div class="list">
+                            <!-- Colors Will be loaded from js 😅 -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Editing Area -->
+                <div class="editing-mode" data-type="text">
+
+                    <!-- Text Edit Input -->
+                    <div class="text-edit-input single-tool" id="editText">
+                        <textarea class="text-edit-inp"></textarea>
+                    </div>
+
+                    <!-- Fonts Options Selector -->
+                    <div class="options-selector hide-tool" data-target="fontFamily"
+                        onclick="$('.options-selector-panel#fontFamily').addClass('active');">
+                        <div class="item" style="font-family: Amatic;">Amatic</div>
+                        <img src="./images/icons/arrow-right.svg" alt="">
+                    </div>
+
+                    <!-- Fonts Panel -->
+                    <div class="options-selector-panel single-tool" id="fontFamily">
+                        <div class="header" onclick="$('.options-selector-panel#fontFamily').removeClass('active')">
+                            <img src="./images/icons/arrow-left.svg" alt="">
+                            <span class="title">Choose a font</span>
+                        </div>
+
+                        <div class="list"></div>
+                    </div>
+
+                    <!-- Alignment -->
+                    <div class="single-tool" id="alignment">
+                        <!-- Curve Text Input -->
+                        <div class="curve-text-inp-con">
+                            <input type="range" class="editor-range-slider" id="text-curve-range" max="5000"
+                                value="2500">
+                            <input type="number" style="display: none;" id="curve-text" value="0">
+                        </div>
+
+                        <!-- Text Aligments -->
+                        <div class="alignments">
+                            <div class="align-btn" data-type="left">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="25px" viewBox="0 -960 960 960"
+                                    width="25px" fill="#5f6368">
+                                    <path
+                                        d="M144-144v-72h672v72H144Zm0-150v-72h480v72H144Zm0-150v-72h672v72H144Zm0-150v-72h480v72H144Zm0-150v-72h672v72H144Z" />
+                                </svg>
+                            </div>
+
+                            <div class="align-btn" data-type="centerH">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960"
+                                    width="20px" fill="#5f6368">
+                                    <path
+                                        d="M144-144v-72h672v72H144Zm144-150v-72h384v72H288ZM144-444v-72h672v72H144Zm144-150v-72h384v72H288ZM144-744v-72h672v72H144Z" />
+                                </svg>
+                            </div>
+
+                            <div class="align-btn" data-type="right">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960"
+                                    width="20px" fill="#5f6368">
+                                    <path
+                                        d="M144-744v-72h672v72H144Zm192 150v-72h480v72H336ZM144-444v-72h672v72H144Zm192 150v-72h480v72H336ZM144-144v-72h672v72H144Z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Color Picker Panel -->
+                    <div class="options-selector-panel" id="colorPicker">
+                        <div class="header" onclick="$('.options-selector-panel#colorPicker').removeClass('active')">
+                            <img src="./images/icons/arrow-left.svg" alt="">
+                            <span class="title">Choose Color</span>
+                        </div>
+
+                        <div class="color-picker-container">
+
+                            <div class="color-picker"></div>
+
+                            <div class="color-code-con">
+                                <input type="text" class="color-picker-code">
+                                <button class="apply-color-btn">Apply</button>
+                                <button class="close-color-btn">Close</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Colors -->
+                    <div class="colors-con single-tool" id="color" data-type="text">
+
+                        <div class="list">
+                            <div style="background:#000;" data-color="#000" class="single-color"></div>
+                            <div style="background:#fff;" data-color="#fff" class="single-color"></div>
+                            <div style="background:#08086d;" data-color="#08086d" class="single-color"></div>
+                            <div style="background:#c20909;" data-color="#c20909" class="single-color"></div>
+                            <div style="background:#045018;" data-color="#045018" class="single-color"></div>
+                            <div style="background:#6e1c3d;" data-color="#6e1c3d" class="single-color"></div>
+                            <div style="background:#cba84b;" data-color="#cba84b" class="single-color"></div>
+                            <div style="background:#23404a;" data-color="#23404a" class="single-color"></div>
+                            <div style="background:#e0504f;" data-color="#e0504f" class="single-color"></div>
+                            <div style="background:#005d89;" data-color="#005d89" class="single-color"></div>
+
+                            <img src="./images/color-picker-icon.png" class="color-picker-toggle" id="colorPicker"
+                                onclick="$('.options-selector-panel#colorPicker').addClass('active');" alt="">
+                        </div>
+
+                    </div>
+
+                    <div class="tool-header">
+                        <span class="title">Color</span>
+                    </div>
+
+                </div>
+
+                <button class="export-btn export-design-btn"><img src="./images/icons/save.svg" alt=""> Export</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Design Popup  -->
+    <div class="design-popup">
+        <div class="categories active"></div>
+        <div class="panels">
+            <span class="prev-btn" onclick="$('.design-popup .categories').addClass('active');">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                    fill="#5f6368">
+                    <path d="M576-240 336-480l240-240 51 51-189 189 189 189-51 51Z" />
+                </svg>
+            </span>
+
+        </div>
+
+        <span class="close-popup" onclick="toggleDesignPopup(false)">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                <path
+                    d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+            </svg>
+        </span>
+    </div>
+
+    <!-- Template popup -->
+    <div class="template-popup">
+        <div class="header">
+            <div class="title">Previous Customization</div>
+
+            <span class="close-popup close-template-popup">
+                <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#fff">
+                    <path
+                        d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z">
+                    </path>
+                </svg>
+            </span>
+        </div>
+        <div class="template-preview">
+            <img src="" class="template-image" alt="">
+        </div>
+        <div class="bottom-area">
+            <button class="close-template-popup">Cancel</button>
+            <button class="choose-template-btn">Choose</button>
+        </div>
+    </div>
+
+
+    <!-- Libraries -->
+    <script src="./js/Libraries/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+    <script src="./js/Libraries/fabric.min.js"></script>
+
+    <!-- Global -->
+    <script src="./js/config.js"></script>
+    <script src="./js/functions.js"></script>
+    <script src="./js/Classes/Editor.js"></script>
+    <script src="./js/Classes/IndexedDB.js"></script>
+
+    <!-- Plugins -->
+    <script src="./js/plugins/aspect-ratio.js"></script>
+    <script src="./js/plugins/alignment.js"></script>
+    <script src="./js/plugins/curve-text.js"></script>
+    <script src="./js/plugins/canvas-guides.js"></script>
+
+    <!-- Files -->
+    <script src="./js/export.js"></script>
+    <script src="./js/design-popup.js"></script>
+    <script src="./js/prototype.js"></script>
+    <script src="./js/editor-functions.js"></script>
+    <script src="./js/template.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>

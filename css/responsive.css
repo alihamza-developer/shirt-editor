@@ -1,0 +1,222 @@
+.export-for-responsive {
+    display: none !important;
+    border-left: 1px solid #ddd;
+}
+
+.editing-tools .editing-mode {
+    overflow: hidden;
+}
+
+.close-color-btn,
+.sidebar .items[data-type="text"]:not(.active) {
+    display: none !important;
+}
+
+.close-color-btn {
+    background: #eee !important;
+    border: 1px solid #2b3741 !important;
+    color: #2b3741 !important;
+}
+
+.tool-header {
+    position: absolute;
+    top: -42px;
+    z-index: 999999;
+    width: 100%;
+    padding: 10px;
+    background: var(--editor-primary-color);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+
+
+@media screen and (max-width: 1140px) {
+    .editor-wraper {
+        padding-inline: 6rem;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .editor-wraper {
+        padding-inline: 3rem;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .editing-tools .editing-mode {
+        overflow: inherit;
+    }
+
+    .single-tool:not(.active)~.tool-header,
+    .export-btn,
+    .single-tool#fontFamily .header,
+    #colorPicker .header,
+    .options-selector-panel#colorPicker:not(.active),
+    .options-selector-panel#colorPicker.active~.single-tool#color,
+    .editing-mode[data-type="text"] .hide-tool,
+    .editing-mode[data-type="text"] .single-tool,
+    .design-popup .categories:not(.active),
+    .design-popup .categories.active~.panels,
+    .sidebar .items[data-type="text"].active~.items[data-type="sidebar"] {
+        display: none;
+    }
+
+    .editing-tools .editing-mode[data-type="shirt"] .heading {
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    .single-tool.active~.tool-header {
+        display: flex;
+    }
+
+    .close-color-btn,
+    .design-popup .categories:not(.active)~.panels .prev-btn {
+        display: block !important;
+    }
+
+    .editor-wraper {
+        padding-top: 0px;
+        padding-inline: 0px;
+    }
+
+    .options-selector-panel,
+    .editor-popup {
+        border-radius: 0px;
+    }
+
+    .design-popup {
+        top: 43%;
+        box-shadow: none !important;
+        border: 1px solid #ddd;
+    }
+
+    .design-popup .categories {
+        width: 100%;
+        padding-top: 30px;
+    }
+
+    .design-popup .panels {
+        width: 100%;
+    }
+
+    .design-popup .panels .single-panel .single-design {
+        max-width: calc(50% - 10px);
+        flex-basis: calc(50% - 10px);
+    }
+
+    .export-for-responsive {
+        display: flex !important;
+    }
+
+    .template-popup .template-preview {
+        height: calc(100% - 90px);
+    }
+
+    .template-popup {
+        width: 330px;
+        top: 40%;
+    }
+
+    .template-popup .bottom-area button {
+        padding: 7px;
+        font-size: 12px;
+    }
+
+    .editing-tools {
+        bottom: 84px;
+        right: 0px;
+        width: 100%;
+    }
+
+    .editing-mode {
+        border-bottom-left-radius: 0px !important;
+        border-bottom-right-radius: 0px !important;
+        box-shadow: none !important;
+        border-radius: 0px !important;
+    }
+
+
+    .editor-popup {
+        height: 100vh;
+        padding: 0px;
+    }
+
+    .sidebar {
+        width: 100%;
+        border-radius: 0px;
+        padding: 0px;
+        border-top: 1px solid #ddd;
+        top: inherit;
+        bottom: 0px;
+        left: 0px;
+        z-index: 999;
+    }
+
+    .shirt-editor-con {
+        height: 100%;
+    }
+
+    .preview-area {
+        padding-left: 0px;
+        padding-right: 0px;
+        height: calc(100% - 82.56);
+    }
+
+    .sidebar .items {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .sidebar .items .item {
+        border-bottom: none;
+    }
+
+    .sidebar .items[data-type="text"] .item:nth-child(3),
+    .sidebar .items .item:nth-child(2) {
+        border-right: 1px solid #ddd;
+        border-left: 1px solid #ddd;
+    }
+
+
+    .editing-mode[data-type="text"] .single-tool.active {
+        display: block;
+    }
+
+
+    .options-selector-panel#colorPicker,
+    .single-tool#fontFamily {
+        position: inherit;
+    }
+
+    .single-tool#fontFamily .list .item {
+        font-size: 19px;
+        padding: 12px;
+    }
+
+    .single-tool#fontFamily .list {
+        max-height: 27vh;
+    }
+
+    .editing-mode[data-type="text"] .single-tool#color {
+        padding: 20px 10px;
+    }
+
+
+}
+
+@media screen and (max-width:650px) {}
+
+@media screen and (max-width:574px) {}
+
+@media screen and (max-width:478px) {}
+
+@media screen and (max-width:394px) {}

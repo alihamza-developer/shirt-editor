@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/Libraries/jquery-ui.min.css">
+    <link rel="stylesheet" href="./css/print-area.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form class="print-area-form">
+        <div class="print-area-controls">
+
+            <!-- Width -->
+            <div class="single-control" data-type="width">
+                <div class="pull-away">
+                    <label>Width</label>
+                    <input type="number" value="0">
+                </div>
+
+                <input type="range" name="width" min="0" max="1000" value="100">
+            </div>
+            <!-- Height -->
+            <div class="single-control" data-type="height">
+
+                <div class="pull-away">
+                    <label>Height</label>
+                    <input type="number" value="0">
+                </div>
+
+                <input type="range" name="height" min="0" max="1000" value="100">
+            </div>
+
+            <!-- Top -->
+            <div class="single-control" data-type="top">
+                <div class="pull-away">
+                    <label>Top</label>
+                    <input type="number" value="0">
+                </div>
+
+                <input type="range" name="top" min="0" max="1000" value="100">
+            </div>
+
+            <!-- Left -->
+            <div class="single-control" data-type="left">
+                <div class="pull-away">
+                    <label>Left</label>
+                    <input type="number" value="0">
+                </div>
+
+                <input type="range" name="left" min="0" max="1000" value="100">
+            </div>
+
+            <!-- Left -->
+            <div class="single-control">
+                <div class="pull-away">
+                    <label>Design Export Scale:</label>
+                    <input type="number" value="6" class="export-scale-inp">
+                </div>
+
+                <div class="dims">
+                    <input type="number" class="width">
+                    x <input type="number" class="height">
+                </div>
+            </div>
+
+
+            <button class="export-btn" type="button" style="cursor: pointer;">Export</button>
+
+
+
+
+        </div>
+    </form>
+
+
+    <div class="shirt-container">
+
+
+        <img src="" alt="">
+
+        <div class="print-area"></div>
+    </div>
+
+    <script src="./resources/Editor/Libraries/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+    <script src="./resources/Editor/functions.js"></script>
+    <script src="./resources/Editor/print-area.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+.options-selector {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+    padding-top: 0px;
+}
+
+.options-selector .item {
+    font-size: 25px;
+    margin: auto;
+}
+
+.options-selector-panel .header img,
+.options-selector img {
+    width: 10px;
+}
+
+.options-selector-panel {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    right: -105%;
+    background: white;
+    transition: 0.3s;
+    z-index: -1;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.options-selector-panel .header {
+    background: white;
+    padding: 15px;
+    cursor: pointer;
+    display: block;
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    justify-content: inherit;
+    padding-right: 40px;
+}
+
+.options-selector-panel .header .title {
+    font-size: 18px;
+    color: var(--text-color);
+    margin: auto;
+}
+
+.options-selector-panel .list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.options-selector-panel .list .item {
+    width: 100%;
+    font-size: 30px;
+    padding: 17px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    transition: 0.2s;
+    text-align: center;
+}
+
+.options-selector-panel .list .item:last-child {
+    border-bottom: none;
+}
+
+.options-selector-panel .list .item:hover {
+    background: #eee;
+}
+
+.options-selector-panel.active {
+    right: 0px;
+    z-index: 9999;
+}

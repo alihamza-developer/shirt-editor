@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    font-family: sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+.shirt-container {
+    position: relative;
+}
+
+.shirt-container img {
+    width: 100%;
+}
+
+.print-area {
+    background: white;
+    position: absolute;
+    border-radius: 3px;
+}
+
+
+.print-area-controls {
+    position: absolute;
+    right: 0px;
+    top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: white;
+    box-shadow: 0px 0px 10px 0px #ddd;
+    padding: 10px;
+    border: 1px solid #ddd;
+    width: 240px;
+    z-index: 9;
+}
+
+.print-area-controls .single-control {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.print-area-controls .single-control label {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+input[type="range"] {
+    appearance: none;
+    background: #eee;
+    height: 5px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background-color: #4dc859;
+    border: 2px solid #4dc859;
+    cursor: pointer;
+    border-radius: 100%;
+}
+
+.print-area-controls .single-control .pull-away {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.print-area-controls .single-control .pull-away input {
+    border: 1px solid #ddd;
+    width: 50px;
+    font-size: 12px;
+    padding: 5px 2px;
+    text-align: center;
+    outline: none !important;
+
+}
+
+.dims {
+    gap: 6px;
+    display: flex;
+    font-size: 13px;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.dims input {
+    width: 40%;
+    border: 1px solid #ddd;
+    font-size: 12px;
+    padding: 5px 2px;
+    text-align: center;
+    outline: none !important;
+}

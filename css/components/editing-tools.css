@@ -1,0 +1,232 @@
+:root {
+    --area-width: 350px;
+}
+
+/* #region Colors Con */
+.editing-tools .colors-con {
+    padding: 10px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.editing-tools .colors-con .title {
+    font-size: 16px;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.editing-tools .colors-con .list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.editing-tools .colors-con .single-color {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+
+}
+
+.editing-tools .colors-con .single-color.active,
+.editing-tools .colors-con .single-color:hover {
+    border-width: 3px;
+    border-color: #bcbcbc;
+}
+
+/* #endregion Colors Con */
+
+.top-area {
+    display: flex;
+    gap: 10px 20px;
+    padding: 5px;
+    width: var(--area-width);
+    justify-content: right;
+    position: absolute;
+    top: 50px;
+    right: 0px;
+    z-index: 999;
+}
+
+.top-area .zoom-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #fff;
+}
+
+.top-area .zoom-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+.top-area .zoom-btn .zoom-out,
+.top-area .zoom-btn.active .zoom-in {
+    display: none;
+}
+
+.top-area .zoom-btn.active .zoom-out {
+    display: block !important;
+}
+
+
+.editing-tools {
+    width: var(--area-width);
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.editing-tools .editing-mode {
+    width: 100%;
+    background: white;
+    height: fit-content;
+    display: none;
+    z-index: -1;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px #ddd;
+}
+
+.editing-tools .editing-mode.active {
+    display: block;
+    z-index: 99;
+}
+
+/* #region Shirt Mode */
+
+.editing-tools .editing-mode[data-type="shirt"] .heading {
+    text-align: center;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    color: #fff;
+    background: var(--editor-primary-color);
+    ;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+
+/* #endregion Shirt Mode */
+
+
+/* #region Text Mode */
+.editing-mode[data-type="text"] {
+    max-height: 26.5rem;
+    height: fit-content;
+}
+
+
+.color-picker-toggle {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.editing-mode[data-type="text"].active {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+.editing-mode[data-type="text"] .text-edit-input {
+    padding: 8px;
+}
+
+.editing-mode[data-type="text"] .text-edit-inp {
+    border: 1px solid #e2e5ea;
+    border-radius: 5px;
+    outline: none;
+    padding: 18px 15px;
+    resize: none;
+    width: 100%;
+    height: 5rem;
+}
+
+.editing-mode[data-type="text"] .alignments {
+    display: flex;
+    justify-content: space-between;
+}
+
+.editing-mode[data-type="text"] .alignments .align-btn svg {
+    width: 30px !important;
+    height: 30px !important;
+}
+
+.editing-mode[data-type="text"] .alignments .align-btn.active svg {
+    fill: var(--editor-primary-color);
+    ;
+}
+
+
+.editing-mode[data-type="text"] .alignments .align-btn {
+    padding: 6px 20px;
+    cursor: pointer;
+}
+
+.editing-mode[data-type="text"] .colors-con {
+    border-top: 1px solid #ddd;
+}
+
+.curve-text-inp-con {
+    padding: 30px 15px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+}
+
+/* #endregion Text Mode */
+
+/* #region Color Picker */
+.color-picker-container {
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+
+.color-picker-container .color-code-con {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: calc(100% - 210px);
+    height: fit-content;
+}
+
+.color-picker-container .color-code-con input {
+    border: 1px solid #ddd;
+    outline: none !important;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 10px;
+    color: #333;
+    letter-spacing: 0.5px;
+}
+
+.color-picker-container .color-code-con button {
+    background: #2b3741;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    outline: none !important;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* #endregion Color Picker */

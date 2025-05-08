@@ -1,0 +1,27 @@
+input[type="color"].rounded {
+    appearance: none;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    padding: 0;
+    cursor: pointer;
+    background: none;
+    border: 3px solid #ddd;
+}
+
+/* Hide default color picker UI */
+input[type="color"].rounded::-webkit-color-swatch-wrapper {
+    padding: 0;
+    border-radius: 50%;
+}
+
+input[type="color"].rounded::-webkit-color-swatch {
+    border: none;
+    border-radius: 50%;
+}
+
+input[type="color"].rounded::-moz-color-swatch {
+    border: none;
+    border-radius: 50%;
+}
