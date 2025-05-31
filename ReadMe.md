@@ -35,12 +35,11 @@ A powerful and easy-to-use web-based T-Shirt Editor that allows users to create 
 
 ## 📸 Screenshots
 
-<p align="center">
-  <img src="images/screenshots/desktop-mode.png" alt="Desktop Mode" width="45%" />
-  &nbsp;
-  <img src="images/screenshots/responsive.png" alt="Responsive Mode" width="45%" />
-</p>
+### 🖥️ Desktop Mode
+![Desktop Mode](images/screenshots/desktop-mode.png)
 
+### 📱 Responsive Mode
+![Responsive Mode](images/screenshots/responsive.png)
 
 ## 💡 Use Cases
 
