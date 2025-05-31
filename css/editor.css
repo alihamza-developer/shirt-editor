@@ -11,6 +11,10 @@
     --editor-primary-color: #5b84b7;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body:has(.editor-wraper.active) {
     overflow: hidden;
 }
@@ -58,17 +62,6 @@ body:has(.editor-wraper.active) {
     display: block;
 }
 
-.design-popup,
-.design-popup *,
-.template-popup,
-.template-popup *,
-.content-center,
-.cn-obj-props-nav,
-.cn-obj-props-nav *,
-.editor-wraper,
-.editor-wraper * {
-    box-sizing: border-box;
-}
 
 
 .content-center {
@@ -215,7 +208,7 @@ body:has(.editor-wraper.active) {
     position: fixed;
     display: none;
     cursor: pointer;
-    z-index: 1;
+    z-index: 9999;
 }
 
 .cn-obj-props-nav.active {
